@@ -19,6 +19,8 @@ in
     ./nixvim.nix
     ./starship/starship.nix
     ./kitty/kitty.nix
+    ./i3/i3.nix
+    ./i3status/i3status.nix
     ./tmux.nix
     ./zsh.nix
   ];
