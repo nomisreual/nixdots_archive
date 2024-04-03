@@ -9,6 +9,7 @@
   # Import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
+    ./greed.nix
   ];
 
   nixpkgs = {
@@ -83,55 +84,61 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  programs.sway = {
+    enable = true;
+  };
+
   # XServer
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # i3 WM
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3-gaps;
-    extraPackages = with pkgs; [
-      rofi # application launcher
-      i3status # gives you the default i3 status bar
-      i3lock #default i3 screen locker
-      i3blocks #if you are planning on using i3blocks over i3status
-    ];
-  };
+  # services.xserver.desktopManager.xterm.enable = false;
+  # services.xserver.windowManager.i3 = {
+  #   enable = true;
+  #   package = pkgs.i3-gaps;
+  #   extraPackages = with pkgs; [
+  #     rofi # application launcher
+  #     i3status # gives you the default i3 status bar
+  #     i3lock #default i3 screen locker
+  #     i3blocks #if you are planning on using i3blocks over i3status
+  #   ];
+  # };
+
+  #services.desktopManager.cosmic.enable = true;
+  #services.displayManager.cosmic-greeter.enable = true;
   
 
   # Keyboard Layouts:
-  services.xserver = {
-    xkb.layout = "us, de";
-  };
-  
-  environment.gnome.excludePackages = (with pkgs; [
-  gnome-photos
-  gnome-tour
-  gnome-console
-  xterm
-  gedit # text editor
-  ])
-  ++
-  (with pkgs.gnome; [
-  cheese # webcam tool
-  gnome-music
-  gnome-terminal
-  epiphany # web browser
-  geary # email reader
-  evince # document viewer
-  gnome-characters
-  totem # video player
-  tali # poker game
-  iagno # go game
-  hitori # sudoku game
-  atomix # puzzle game
-  gnome-maps
-  gnome-weather
-  yelp
-  ]);
+  # services.xserver = {
+  #   xkb.layout = "us, de";
+  # };
+  # 
+  # environment.gnome.excludePackages = (with pkgs; [
+  # gnome-photos
+  # gnome-tour
+  # gnome-console
+  # xterm
+  # gedit # text editor
+  # ])
+  # ++
+  # (with pkgs.gnome; [
+  # cheese # webcam tool
+  # gnome-terminal
+  # epiphany # web browser
+  # geary # email reader
+  # evince # document viewer
+  # gnome-characters
+  # totem # video player
+  # tali # poker game
+  # iagno # go game
+  # hitori # sudoku game
+  # atomix # puzzle game
+  # gnome-maps
+  # gnome-weather
+  # yelp
+  # ]);
 
   # Enable ZSH:
   programs.zsh.enable = true;
@@ -148,7 +155,13 @@
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
       ];
-      extraGroups = [ "wheel" "networkmanager" "docker" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+	"docker"
+	"scanner"
+	"lp"
+      ];
     };
   };
 
@@ -168,10 +181,25 @@
   git
   neofetch
   zoxide
-  xdotool
-  maim
-  feh
+  # xdotool
+  # maim
+  # feh
+  # (pkgs.buildFHSUserEnv {
+  #   name = "neovim";
+  #   runScript = "zsh";
+  #   targetPkgs = pkgs: with pkgs; [
+  #     neovim
+  #     python311
+  #     nodejs_21
+  #     wl-clipboard
+  #     ripgrep
+  #   ];
+  # })
+  # gnomeExtensions.pop-shell
   ]);
+
+  # Wayland related:
+  security.polkit.enable = true;
 
   # Enable podman:
   virtualisation.podman = {
@@ -190,6 +218,21 @@
   services.postgresql.ensureDatabases = [
     "books"
   ];
+
+  # Printing & Scanning
+  services.printing = {
+    enable = true;
+  };
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.sane-airscan ];
+  };
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+
   # SSH Server:
   services.openssh = {
     enable = true;

@@ -14,13 +14,14 @@ in
 {
   # Other home-manager modules
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    #inputs.nixvim.homeManagerModules.nixvim
     ./git.nix
-    ./nixvim.nix
+    #./nixvim/nixvim.nix
+    #./neovim/neovim.nix
     ./starship/starship.nix
     ./kitty/kitty.nix
-    ./i3/i3.nix
-    ./i3status/i3status.nix
+    # ./i3/i3.nix
+    # ./i3status/i3status.nix
     ./tmux.nix
     ./zsh.nix
   ];
@@ -69,10 +70,27 @@ in
     starship
   ];
 
+  # WM
+  wayland.windowManager.sway = {
+    enable = true;
+    config = rec {
+      modifier = "Mod4";
+      terminal = "kitty"; 
+      output = {
+        "DP-1" = {
+          mode = "1920x1080@165Hz";
+        };
+        "DP-2" = {
+          mode = "1920x1080@60Hz";
+        };
+      };
+    };
+  };
+
   # Enable home-manager
   programs.home-manager.enable = true;
 
-  # Nicely reload system units when changing configs
+  # Nicely reload system units when changing configs:
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
