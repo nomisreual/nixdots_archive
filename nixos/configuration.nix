@@ -101,9 +101,9 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-	"docker"
-	"scanner"
-	"lp"
+       	"docker"
+	      "scanner"
+	      "lp"
       ];
     };
   };
@@ -165,7 +165,7 @@
 
   # SSH Server:
   services.openssh = {
-    enable = true;
+    enable = false;
     settings = {
       # Forbid root login through SSH.
       PermitRootLogin = "no";
