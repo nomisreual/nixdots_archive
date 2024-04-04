@@ -1,29 +1,28 @@
-# System configuration:
 {
   inputs,
   config,
   lib,
   pkgs,
   ...
-}: {
-  # Import other NixOS modules here
+}:
+{
+  # Import modulues:
   imports = [
     ./hardware-configuration.nix
     ./greed.nix
   ];
 
+  # Configure nixpkgs:
   nixpkgs = {
-    # Add overlays:
     overlays = [
     ];
-    # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
     };
   };
 
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
+  # Add each flake input as a registry;
+  # to make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
   # This will additionally add your inputs to the system's legacy channels
@@ -84,61 +83,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  programs.sway = {
-    enable = true;
-  };
-
-  # XServer
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # i3 WM
-  # services.xserver.desktopManager.xterm.enable = false;
-  # services.xserver.windowManager.i3 = {
-  #   enable = true;
-  #   package = pkgs.i3-gaps;
-  #   extraPackages = with pkgs; [
-  #     rofi # application launcher
-  #     i3status # gives you the default i3 status bar
-  #     i3lock #default i3 screen locker
-  #     i3blocks #if you are planning on using i3blocks over i3status
-  #   ];
-  # };
-
-  #services.desktopManager.cosmic.enable = true;
-  #services.displayManager.cosmic-greeter.enable = true;
-  
-
-  # Keyboard Layouts:
-  # services.xserver = {
-  #   xkb.layout = "us, de";
-  # };
-  # 
-  # environment.gnome.excludePackages = (with pkgs; [
-  # gnome-photos
-  # gnome-tour
-  # gnome-console
-  # xterm
-  # gedit # text editor
-  # ])
-  # ++
-  # (with pkgs.gnome; [
-  # cheese # webcam tool
-  # gnome-terminal
-  # epiphany # web browser
-  # geary # email reader
-  # evince # document viewer
-  # gnome-characters
-  # totem # video player
-  # tali # poker game
-  # iagno # go game
-  # hitori # sudoku game
-  # atomix # puzzle game
-  # gnome-maps
-  # gnome-weather
-  # yelp
-  # ]);
 
   # Enable ZSH:
   programs.zsh.enable = true;
@@ -147,7 +91,6 @@
   programs.vim.defaultEditor = true;
 
   # System-wide user settings:
-
   users.users = {
     simon = {
       isNormalUser = true;
@@ -165,7 +108,6 @@
     };
   };
 
-
   # System-wide packages:
   environment.systemPackages =
   (with pkgs; [
@@ -181,27 +123,15 @@
   git
   neofetch
   zoxide
-  # xdotool
-  # maim
-  # feh
-  # (pkgs.buildFHSUserEnv {
-  #   name = "neovim";
-  #   runScript = "zsh";
-  #   targetPkgs = pkgs: with pkgs; [
-  #     neovim
-  #     python311
-  #     nodejs_21
-  #     wl-clipboard
-  #     ripgrep
-  #   ];
-  # })
-  # gnomeExtensions.pop-shell
   ]);
 
   # Wayland related:
   security.polkit.enable = true;
+  programs.sway = {
+    enable = true;
+  };
 
-  # Enable podman:
+  # Enable Podman:
   virtualisation.podman = {
     enable = true;
   };

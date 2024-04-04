@@ -14,7 +14,6 @@ in
 {
   # Other home-manager modules
   imports = [
-    #inputs.nixvim.homeManagerModules.nixvim
     ./git.nix
     #./nixvim/nixvim.nix
     #./neovim/neovim.nix
@@ -39,6 +38,7 @@ in
     };
   };
 
+
   home = {
     username = username;
     homeDirectory = "/home/${username}";
@@ -50,6 +50,7 @@ in
   # User packages:
   home.packages = with pkgs; [
     # Nerdfonts
+    inputs.nixvim.packages.${system}.default
     (nerdfonts.override { fonts = [ "DroidSansMono" "FantasqueSansMono" "Gohu" ]; })
     discord
     slack
@@ -61,13 +62,15 @@ in
     vlc
     kitty
     dbeaver
-    # Easy VMs
     quickemu
     quickgui
     # Video Conferencing
     zoom-us
     # shell prompt
     starship
+    # Sway related:
+    dunst
+    pavucontrol
   ];
 
   # WM
@@ -84,8 +87,68 @@ in
           mode = "1920x1080@60Hz";
         };
       };
+      # menu = "rofi -show drun";
+      menu = "fuzzel";
+      window.titlebar = false;
+      bars = [
+        {
+          command = "waybar";
+        }
+      ];
+      gaps = {
+        inner = 5;
+        outer = 5;
+        smartBorders = "on";
+      };
     };
   };
+
+  # Waybar
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "DP-1"
+          "DP-2"
+        ];
+        modules-left = [ "sway/workspaces" "sway/mode" ];
+        modules-center = [ "sway/window" ];
+        modules-right = [ "pulseaudio" "cpu" "memory" "temperature" "clock"];
+
+        "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = false;
+        };
+        "cpu" = {
+          interval = 10;
+          format = "{}% CPU";
+          max-length = 25;
+        };
+        "memory" = {
+          interval = 30;
+          format = "{}% Mem";
+          max-length = 25;
+        };
+        "clock" = {
+          interval = 60;
+          format = "{:%H:%M}";
+          max-length = 25;
+        };
+      };
+    };
+  };
+
+  # Application launcher:
+  programs.fuzzel = {
+    enable = true;
+  };
+
+  services.redshift.enable = true;
+  services.redshift.provider = "geoclue2";
 
   # Enable home-manager
   programs.home-manager.enable = true;

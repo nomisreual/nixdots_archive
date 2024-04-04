@@ -14,6 +14,7 @@
     # NixVim
     #nixvim.url = "github:nix-community/nixvim";
     #nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nomisreual/nixvim";
 
     # PopOS Cosmic DE Testing
     #nixos-cosmic = {

@@ -7,7 +7,7 @@
     enableCompletion = true;
     initExtra = ''
 	# Zoxide
-	eval "$(zoxide init zsh)"
+	eval "$(zoxide init zsh --cmd cd)"
 
 	# Starship
 	eval "$(starship init zsh)"
