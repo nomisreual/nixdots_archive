@@ -1,14 +1,9 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  pkgs,
-  ...
-}:
-let
+{pkgs, ...}: let
   username = "simon";
   enableUnfree = true;
-in
-{
+in {
   # Other home-manager modules
   imports = [
     ./git.nix
@@ -33,7 +28,6 @@ in
       allowUnfreePredicate = _: enableUnfree;
     };
   };
-
 
   home = {
     username = username;
