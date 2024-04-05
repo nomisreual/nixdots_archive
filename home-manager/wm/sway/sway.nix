@@ -13,9 +13,11 @@
       output = {
         "DP-1" = {
           mode = "1920x1080@165Hz";
+          background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
         };
         "DP-2" = {
           mode = "1920x1080@60Hz";
+          background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
         };
       };
       menu = "fuzzel";
