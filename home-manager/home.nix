@@ -6,6 +6,7 @@
 in {
   # Other home-manager modules
   imports = [
+    ./utilities/gammastep
     ./git.nix
     ./nixvim
     ./fonts
@@ -53,9 +54,6 @@ in {
     # shell prompt
     starship
   ];
-
-  services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
 
   # Enable home-manager
   programs.home-manager.enable = true;

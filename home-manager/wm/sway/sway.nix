@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     dunst
     pavucontrol
@@ -9,7 +8,7 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      terminal = "kitty"; 
+      terminal = "kitty";
       output = {
         "DP-1" = {
           mode = "1920x1080@165Hz";
@@ -47,9 +46,9 @@
           "DP-1"
           "DP-2"
         ];
-        modules-left = [ "sway/workspaces" "sway/mode" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "pulseaudio" "cpu" "memory" "temperature" "clock"];
+        modules-left = ["sway/workspaces" "sway/mode"];
+        modules-center = ["sway/window"];
+        modules-right = ["pulseaudio" "cpu" "memory" "temperature" "clock"];
 
         "sway/workspaces" = {
           disable-scroll = true;

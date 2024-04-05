@@ -1,4 +1,3 @@
-{ config, pkgs, ...}:
 {
   programs.zsh = {
     enable = true;
@@ -6,15 +5,15 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     initExtra = ''
-	# Zoxide
-	eval "$(zoxide init zsh --cmd cd)"
+      # Zoxide
+      eval "$(zoxide init zsh --cmd cd)"
 
-	# Starship
-	eval "$(starship init zsh)"
+      # Starship
+      eval "$(starship init zsh)"
 
-	# Add local bin
-	path=('/home/simon/.local/bin' $path)
-	export PATH
+      # Add local bin
+      path=('/home/simon/.local/bin' $path)
+      export PATH
     '';
   };
 }

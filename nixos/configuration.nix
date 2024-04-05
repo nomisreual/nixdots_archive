@@ -4,9 +4,8 @@
   lib,
   pkgs,
   ...
-}:
-{
-  # Import modulues:
+}: {
+  # Import modules:
   imports = [
     ./hardware-configuration.nix
     ./greed.nix
@@ -83,7 +82,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-
   # Enable ZSH:
   programs.zsh.enable = true;
 
@@ -101,31 +99,39 @@
       extraGroups = [
         "wheel"
         "networkmanager"
-       	"docker"
-	      "scanner"
-	      "lp"
+        "docker"
+        "scanner"
+        "lp"
       ];
     };
   };
 
   # System-wide packages:
-  environment.systemPackages =
-  (with pkgs; [
-  gcc
-  stow
-  gnumake
-  unzip
-  curl
-  kitty
-  vim
-  wget
-  tree
-  git
-  neofetch
-  zoxide
-  ]);
+  environment.systemPackages = with pkgs; [
+    gcc
+    stow
+    gnumake
+    unzip
+    curl
+    kitty
+    vim
+    wget
+    tree
+    git
+    neofetch
+    zoxide
+  ];
 
   # Wayland related:
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
   security.polkit.enable = true;
   programs.sway = {
     enable = true;
@@ -155,7 +161,7 @@
   };
   hardware.sane = {
     enable = true;
-    extraBackends = [ pkgs.sane-airscan ];
+    extraBackends = [pkgs.sane-airscan];
   };
   services.avahi = {
     enable = true;

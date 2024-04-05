@@ -1,4 +1,3 @@
-{ config, pkgs, ... }:
 {
   home.file.".config/kitty/kitty.conf".source = ./kitty.conf;
   home.file.".config/kitty/diff.conf".source = ./dracula.conf;
