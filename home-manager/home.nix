@@ -15,6 +15,7 @@ in {
     ./tmux.nix
     ./zsh.nix
     ./wm/sway
+    ./filemanagers
   ];
 
   nixpkgs = {

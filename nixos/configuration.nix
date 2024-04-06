@@ -137,6 +137,10 @@
     enable = true;
   };
 
+  # Gnome Virtual Filesystem
+  # basically enables Trash in Gnome Nautilus
+  services.gvfs.enable = true;
+
   # Enable Podman:
   virtualisation.podman = {
     enable = true;
