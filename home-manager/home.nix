@@ -53,6 +53,8 @@ in {
     zoom-us
     # shell prompt
     starship
+
+    pipx
   ];
 
   # Enable home-manager
