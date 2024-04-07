@@ -12,55 +12,36 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # NixVim
-    #nixvim.url = "github:nix-community/nixvim";
-    #nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nomisreual/nixvim";
-
-    # PopOS Cosmic DE Testing
-    #nixos-cosmic = {
-    #  url = "github:lilyinstarlight/nixos-cosmic";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    nixos-cosmic,
     ...
-  }@inputs:
-    let
-      inherit (self) outputs;
-    in {
+  } @ inputs: let
+    inherit (self) outputs;
+  in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-          nixos = nixpkgs.lib.nixosSystem {
-          # > main nixos configuration file <
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [
-	    #{
-            #  nix.settings = {
-            #    substituters = [ "https://cosmic.cachix.org/" ];
-            #    trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-            #  };
-            #}
-            #nixos-cosmic.nixosModules.default
-            ./nixos/configuration.nix
-          ];
+      nixos = nixpkgs.lib.nixosSystem {
+        # > Main nixos configuration file <
+        specialArgs = {
+          inherit inputs outputs;
         };
+        modules = [
+          ./nixos/configuration.nix
+        ];
+      };
     };
 
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
+    # Standalone home-manager configuration entrypoint Available through 'home-manager --flake .#simon@nixos'
     homeConfigurations = {
       "simon@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        # > Our main home-manager configuration file <
+        # > Main home-manager configuration file <
         extraSpecialArgs = {
           inherit inputs outputs;
         };
