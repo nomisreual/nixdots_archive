@@ -31,6 +31,8 @@ in {
     };
   };
 
+  fonts.enable = true;
+
   home = {
     username = username;
     homeDirectory = "/home/${username}";
