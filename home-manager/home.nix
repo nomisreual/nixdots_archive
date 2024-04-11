@@ -31,6 +31,7 @@ in {
     };
   };
 
+  # Custom fonts module:
   fonts.enable = true;
 
   home = {
