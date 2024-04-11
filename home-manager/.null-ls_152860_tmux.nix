@@ -18,11 +18,9 @@
       }
     ];
     extraConfig = ''
-      # Make neovim happy:
+      # Compatibility with neovim:
       set-option -g default-terminal "screen-256color"
       set-option -sa terminal-features ",xterm-kitty:RGB"
-      # Allow passthrough:
-      set-option -g allow-passthrough on
 
       # Rebind prefix:
       unbind C-b
