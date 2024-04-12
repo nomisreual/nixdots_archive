@@ -9,6 +9,7 @@
         height = 30;
         output = [
           "DP-1"
+          "DP-2"
         ];
         modules-left = ["custom/launcher" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
@@ -56,26 +57,6 @@
           max-length = 25;
         };
       };
-      offBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        output = [
-          "DP-2"
-        ];
-        modules-left = ["sway/workspaces"];
-        modules-center = ["sway/window"];
-
-        "sway/workspaces" = {
-          disable-scroll = true;
-          all-outputs = false;
-        };
-      };
     };
-    # style = ''
-    #   * {
-    #     opacity : 0.99;
-    #   }
-    # '';
   };
 }
