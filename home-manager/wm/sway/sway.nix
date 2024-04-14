@@ -34,6 +34,34 @@
     };
   };
 
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = "/home/simon/Wallpapers/Ruffy_Dark.jpg";
+    };
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 60;
+        command = "${pkgs.swaylock}/bin/swaylock -fF";
+      }
+      {
+        timeout = 90;
+        command = "${pkgs.systemd}/bin/systemctl suspend";
+      }
+    ];
+
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -fF";
+      }
+    ];
+  };
+
   # Application launcher:
   programs.fuzzel = {
     enable = true;

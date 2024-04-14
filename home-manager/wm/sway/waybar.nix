@@ -9,7 +9,7 @@
         height = 30;
         output = [
           "DP-1"
-          "DP-2"
+          # "DP-2"
         ];
         modules-left = ["custom/launcher" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
