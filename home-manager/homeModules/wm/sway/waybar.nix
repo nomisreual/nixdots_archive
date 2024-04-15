@@ -3,7 +3,16 @@
   programs.waybar = {
     enable = true;
     settings = {
-      mainBar = {
+      right = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "DP-2"
+        ];
+        modules-left = ["sway/workspaces"];
+      };
+      left = {
         layer = "top";
         position = "top";
         height = 30;
@@ -13,11 +22,19 @@
         ];
         modules-left = ["custom/launcher" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
-        modules-right = ["pulseaudio" "cpu" "memory" "temperature" "network" "clock" "tray"];
+        modules-right = ["idle_inhibitor" "pulseaudio" "cpu" "memory" "temperature" "network" "clock" "tray"];
 
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
+        };
+
+        "idle_inhibitor" = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
         };
         "cpu" = {
           interval = 10;

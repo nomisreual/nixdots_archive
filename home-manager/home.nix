@@ -10,16 +10,6 @@
 in {
   # Other home-manager modules
   imports = [
-    # ./utilities/gammastep
-    # ./git.nix
-    # ./nixvim
-    # ./fonts
-    # ./starship/starship.nix
-    # ./kitty/kitty.nix
-    # ./tmux.nix
-    # ./zsh.nix
-    # ./wm/sway
-    # ./filemanagers
     ./homeModules
   ];
 
@@ -66,6 +56,7 @@ in {
     # shell prompt
     starship
 
+    obsidian
     pipx
   ];
 
