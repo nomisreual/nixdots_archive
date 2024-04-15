@@ -1,1 +1,1 @@
-{imports = [./gammastep];}
+{imports = [./gammastep ./git ./starship ./tmux];}

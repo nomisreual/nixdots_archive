@@ -39,6 +39,9 @@ in {
   # Custom fonts module:
   fonts.enable = true;
 
+  # Let's get kitty:
+  kitty.enable = true;
+
   home = {
     username = username;
     homeDirectory = "/home/${username}";

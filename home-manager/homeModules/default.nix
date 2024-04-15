@@ -4,11 +4,8 @@
     ./fonts
     ./kitty
     ./nixvim
-    ./starship
     ./utilities
+    ./shells
     ./wm
-    ./git.nix
-    ./tmux.nix
-    ./git.nix
   ];
 }
