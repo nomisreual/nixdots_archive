@@ -1,6 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   username = "simon";
   enableUnfree = true;
 in {
@@ -72,9 +76,25 @@ in {
     # Theme:
     theme.package = pkgs.pop-gtk-theme;
     theme.name = "pop";
+    # theme = {
+    #   name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = ["pink"];
+    #     size = "compact";
+    #     tweaks = ["rimless" "black"];
+    #     variant = "macchiato";
+    #   };
+    # };
+
     # Icons:
     iconTheme.package = pkgs.pop-icon-theme;
     iconTheme.name = "Pop";
+  };
+  # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
 
   # Enable home-manager
