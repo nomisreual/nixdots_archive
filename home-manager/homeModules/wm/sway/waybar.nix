@@ -3,22 +3,12 @@
   programs.waybar = {
     enable = true;
     settings = {
-      right = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        output = [
-          "DP-2"
-        ];
-        modules-left = ["sway/workspaces"];
-      };
-      left = {
+      mainBar = {
         layer = "top";
         position = "top";
         height = 30;
         output = [
           "DP-1"
-          # "DP-2"
         ];
         modules-left = ["custom/launcher" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
@@ -73,6 +63,15 @@
           spacing = 5;
           max-length = 25;
         };
+      };
+      right = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "DP-2"
+        ];
+        modules-left = ["sway/workspaces"];
       };
     };
   };
