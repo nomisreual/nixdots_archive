@@ -32,6 +32,9 @@
         smartBorders = "on";
       };
     };
+    extraConfig = ''
+      bindsym Mod4+Print exec screenshot
+    '';
   };
 
   programs.swaylock = {
