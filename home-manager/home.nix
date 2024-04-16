@@ -39,6 +39,7 @@ in {
 
   # User packages:
   home.packages = with pkgs; [
+    (import ./homeModules/scripts/screenshot.nix {inherit pkgs;})
     discord
     slack
     _1password-gui # password manager
