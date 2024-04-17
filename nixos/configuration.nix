@@ -174,6 +174,10 @@
     openFirewall = true;
   };
 
+  services.mongodb = {
+    enable = true;
+  };
+
   # SSH Server:
   services.openssh = {
     enable = false;
