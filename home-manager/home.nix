@@ -26,11 +26,41 @@ in {
     };
   };
 
+  # Stylix
+  stylix = {
+    image = /home/simon/Wallpapers/Anime_Girl.jpg;
+    polarity = "dark";
+    opacity.terminal = 0.8;
+    fonts.sizes.terminal = 14;
+    fonts = {
+      serif = {
+        package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
+        name = "FantasqueSansMono";
+      };
+      sansSerif = {
+        package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
+        name = "FantasqueSansMono";
+      };
+      monospace = {
+        package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
+        name = "FantasqueSansMono";
+      };
+      emoji = {
+        package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
+        name = "FantasqueSansMono";
+      };
+    };
+    targets.nixvim.transparent_bg.main = true;
+  };
+
   # Custom fonts module:
   fonts.enable = true;
 
   # Let's get kitty:
-  kitty.enable = true;
+  # kitty.enable = true;
+  programs.kitty = {
+    enable = true;
+  };
 
   home = {
     username = username;
@@ -64,36 +94,36 @@ in {
 
   # Styling
 
-  gtk = {
-    enable = true;
-    # Cursors:
-    # cursorTheme.package = pkgs.bibata-cursors;
-    # cursorTheme.name = "Bibata-Modern-Ice";
-
-    # Theme:
-    theme.package = pkgs.pop-gtk-theme;
-    theme.name = "pop";
-    # theme = {
-    #   name = "Catppuccin-Macchiato-Compact-Pink-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = ["pink"];
-    #     size = "compact";
-    #     tweaks = ["rimless" "black"];
-    #     variant = "macchiato";
-    #   };
-    # };
-
-    # Icons:
-    iconTheme.package = pkgs.pop-icon-theme;
-    iconTheme.name = "Pop";
-  };
-  # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  };
-
+  # gtk = {
+  #   enable = true;
+  #   # Cursors:
+  #   # cursorTheme.package = pkgs.bibata-cursors;
+  #   # cursorTheme.name = "Bibata-Modern-Ice";
+  #
+  #   # Theme:
+  #   theme.package = pkgs.pop-gtk-theme;
+  #   theme.name = "pop";
+  #   # theme = {
+  #   #   name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+  #   #   package = pkgs.catppuccin-gtk.override {
+  #   #     accents = ["pink"];
+  #   #     size = "compact";
+  #   #     tweaks = ["rimless" "black"];
+  #   #     variant = "macchiato";
+  #   #   };
+  #   # };
+  #
+  #   # Icons:
+  #   iconTheme.package = pkgs.pop-icon-theme;
+  #   iconTheme.name = "Pop";
+  # };
+  # # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
+  # xdg.configFile = {
+  #   "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+  #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+  #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  # };
+  #
   # Enable home-manager
   programs.home-manager.enable = true;
 

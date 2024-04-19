@@ -142,6 +142,12 @@
   # basically enables Trash in Gnome Nautilus
   services.gvfs.enable = true;
 
+  # Styling
+  stylix = {
+    image = /home/simon/Wallpapers/Anime_Girl.jpg;
+    polarity = "dark";
+  };
+
   # Enable Podman:
   virtualisation.podman = {
     enable = true;

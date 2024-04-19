@@ -11,6 +11,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Stylix
+    stylix.url = "github:danth/stylix";
+
     # NixVim
     nixvim.url = "github:nomisreual/nixvim";
   };
@@ -19,6 +22,7 @@
     self,
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -33,6 +37,7 @@
         };
         modules = [
           ./nixos/configuration.nix
+          stylix.nixosModules.stylix
         ];
       };
     };
@@ -45,7 +50,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
         };
-        modules = [./home-manager/home.nix];
+        modules = [./home-manager/home.nix stylix.homeManagerModules.stylix];
       };
     };
   };

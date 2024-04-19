@@ -12,11 +12,11 @@
       output = {
         "DP-1" = {
           mode = "1920x1080@165Hz";
-          background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
+          # background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
         };
         "DP-2" = {
           mode = "1920x1080@60Hz";
-          background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
+          # background = "/home/simon/Wallpapers/Ruffy_Dark.jpg fill";
         };
       };
       menu = "fuzzel";
@@ -68,9 +68,9 @@
 
   programs.swaylock = {
     enable = true;
-    settings = {
-      image = "/home/simon/Wallpapers/Ruffy_Dark.jpg";
-    };
+    # settings = {
+    #   image = "/home/simon/Wallpapers/Ruffy_Dark.jpg";
+    # };
   };
 
   services.swayidle = {
