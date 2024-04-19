@@ -33,7 +33,36 @@
       };
     };
     extraConfig = ''
+      # Displays:
+      set $left DP-1
+      set $right DP-2
+
       bindsym Mod4+Print exec screenshot
+
+      # Define names for default workspaces for which we configure key bindings later on.
+      # We use variables to avoid repeating the names in multiple places.
+      set $ws1 "1"
+      set $ws2 "2"
+      set $ws3 "3"
+      set $ws4 "4"
+      set $ws5 "5"
+      set $ws6 "6"
+      set $ws7 "7"
+      set $ws8 "8"
+      set $ws9 "9"
+      set $ws10 "10"
+
+      # Workspaces:
+      workspace $ws1 output $left
+      workspace $ws2 output $left
+      workspace $ws3 output $left
+      workspace $ws4 output $left
+      workspace $ws5 output $right
+      workspace $ws6 output $right
+      workspace $ws7 output $right
+      workspace $ws8 output $right
+      workspace $ws9 output $right
+      workspace $ws10 output $right
     '';
   };
 
