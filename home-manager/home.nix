@@ -36,6 +36,11 @@ in {
       desktop = 14;
       popups = 14;
     };
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 24;
+    };
     fonts = {
       serif = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
@@ -98,36 +103,14 @@ in {
 
   # Styling
 
-  # gtk = {
-  #   enable = true;
-  #   # Cursors:
-  #   # cursorTheme.package = pkgs.bibata-cursors;
-  #   # cursorTheme.name = "Bibata-Modern-Ice";
-  #
-  #   # Theme:
-  #   theme.package = pkgs.pop-gtk-theme;
-  #   theme.name = "pop";
-  #   # theme = {
-  #   #   name = "Catppuccin-Macchiato-Compact-Pink-Dark";
-  #   #   package = pkgs.catppuccin-gtk.override {
-  #   #     accents = ["pink"];
-  #   #     size = "compact";
-  #   #     tweaks = ["rimless" "black"];
-  #   #     variant = "macchiato";
-  #   #   };
-  #   # };
-  #
-  #   # Icons:
-  #   iconTheme.package = pkgs.pop-icon-theme;
-  #   iconTheme.name = "Pop";
-  # };
-  # # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
-  # xdg.configFile = {
-  #   "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-  #   "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-  #   "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  # };
-  #
+  gtk = {
+    enable = true;
+
+    # Icons:
+    iconTheme.package = pkgs.pop-icon-theme;
+    iconTheme.name = "Pop";
+  };
+
   # Enable home-manager
   programs.home-manager.enable = true;
 
