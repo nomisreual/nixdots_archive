@@ -26,11 +26,11 @@
           command = "waybar";
         }
       ];
-      gaps = {
-        inner = 5;
-        outer = 5;
-        smartBorders = "on";
-      };
+      # gaps = {
+      #   inner = 5;
+      #   outer = 5;
+      #   smartBorders = "on";
+      # };
     };
     extraConfig = ''
       # Displays:

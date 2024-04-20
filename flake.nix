@@ -15,7 +15,11 @@
     stylix.url = "github:danth/stylix";
 
     # NixVim
-    nixvim.url = "github:nomisreual/nixvim";
+    # nixvim.url = "github:nomisreual/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -50,7 +54,11 @@
         extraSpecialArgs = {
           inherit inputs outputs;
         };
-        modules = [./home-manager/home.nix stylix.homeManagerModules.stylix];
+        modules = [
+          ./home-manager/home.nix
+          stylix.homeManagerModules.stylix
+          inputs.nixvim.homeManagerModules.nixvim
+        ];
       };
     };
   };
