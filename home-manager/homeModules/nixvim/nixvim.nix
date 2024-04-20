@@ -56,6 +56,8 @@
       # Enable 24-bit colors
       termguicolors = true;
     };
+
+    extraPackages = with pkgs; [fd ripgrep sleek];
   };
 
   imports = [
