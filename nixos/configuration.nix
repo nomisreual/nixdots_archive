@@ -35,6 +35,10 @@
     })
     config.nix.registry;
 
+  environment.sessionVariables = {
+    FLAKE = "/home/simon/Configurations/System";
+  };
+
   nix.settings = {
     # Enable flakes and new 'nix' command
     experimental-features = "nix-command flakes";
@@ -82,6 +86,13 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/simon/Configurations/System";
+  };
+
   # Enable ZSH:
   programs.zsh.enable = true;
 
@@ -120,6 +131,9 @@
     git
     neofetch
     zoxide
+
+    nix-output-monitor
+    nvd
   ];
 
   # Wayland related:

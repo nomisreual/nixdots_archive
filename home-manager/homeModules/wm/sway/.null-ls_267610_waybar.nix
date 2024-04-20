@@ -12,33 +12,9 @@
         output = [
           "DP-1"
         ];
-        modules-left = ["custom/launcher" "custom/logout" "custom/reboot" "custom/shutdown" "sway/workspaces" "sway/mode"];
+        modules-left = ["custom/launcher" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
-        modules-right = ["idle_inhibitor" "custom/lock" "pulseaudio" "cpu" "memory" "temperature" "network" "clock" "tray"];
-
-        "custom/logout" = {
-          format = " ";
-          on-click = "swaymsg exit";
-          max-length = 25;
-        };
-
-        "custom/reboot" = {
-          format = " ";
-          on-click = "swaymsg exec systemctl reboot";
-          max-length = 25;
-        };
-
-        "custom/shutdown" = {
-          format = " ";
-          on-click = "swaymsg exec systemctl poweroff";
-          max-length = 25;
-        };
-
-        "custom/lock" = {
-          format = " ";
-          on-click = "swaylock";
-          max-length = 25;
-        };
+        modules-right = ["idle_inhibitor" "pulseaudio" "cpu" "memory" "temperature" "network" "clock" "tray"];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -67,12 +43,12 @@
         };
         "cpu" = {
           interval = 10;
-          format = "{}%  ";
+          format = "{}% CPU";
           max-length = 25;
         };
         "memory" = {
           interval = 30;
-          format = "{}%  ";
+          format = "{}% Mem";
           max-length = 25;
         };
         "network" = {
