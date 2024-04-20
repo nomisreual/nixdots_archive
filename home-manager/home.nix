@@ -31,7 +31,11 @@ in {
     image = /home/simon/Wallpapers/Anime_Girl.jpg;
     polarity = "dark";
     opacity.terminal = 0.8;
-    fonts.sizes.terminal = 14;
+    fonts.sizes = {
+      terminal = 16;
+      desktop = 14;
+      popups = 14;
+    };
     fonts = {
       serif = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
