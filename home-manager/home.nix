@@ -35,19 +35,19 @@ in {
     fonts = {
       serif = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
-        name = "FantasqueSansMono";
+        name = "FantasqueSansM Nerd Font";
       };
       sansSerif = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
-        name = "FantasqueSansMono";
+        name = "FantasqueSansM Nerd Font";
       };
       monospace = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
-        name = "FantasqueSansMono Nerd Font";
+        name = "FantasqueSansM Nerd Font";
       };
       emoji = {
         package = pkgs.nerdfonts.override {fonts = ["FantasqueSansMono"];};
-        name = "FantasqueSansMono";
+        name = "FantasqueSansM Nerd Font";
       };
     };
     targets.nixvim.transparent_bg.main = true;
