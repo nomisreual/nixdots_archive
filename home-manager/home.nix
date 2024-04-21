@@ -3,6 +3,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: let
   username = "simon";
@@ -77,29 +78,33 @@ in {
   };
 
   # User packages:
-  home.packages = with pkgs; [
-    (import ./homeModules/scripts/screenshot.nix {inherit pkgs;})
-    (import ./homeModules/scripts/screenshot_display.nix {inherit pkgs;})
-    discord
-    slack
-    _1password-gui # password manager
-    distrobox # easy linux containers
-    brave # browser
-    firefox
-    thunderbird # mail client
-    vlc
-    kitty
-    dbeaver
-    quickemu
-    quickgui
-    # Video Conferencing
-    zoom-us
-    # shell prompt
-    starship
+  home.packages = with pkgs;
+    [
+      (import ./homeModules/scripts/screenshot.nix {inherit pkgs;})
+      (import ./homeModules/scripts/screenshot_display.nix {inherit pkgs;})
+      discord
+      slack
+      _1password-gui # password manager
+      distrobox # easy linux containers
+      brave # browser
+      firefox
+      thunderbird # mail client
+      vlc
+      kitty
+      dbeaver
+      quickemu
+      quickgui
+      # Video Conferencing
+      zoom-us
+      # shell prompt
+      starship
 
-    obsidian
-    pipx
-  ];
+      obsidian
+      pipx
+    ]
+    ++ [
+      inputs.git-alert.packages."x86_64-linux".default
+    ];
 
   # Styling
 
