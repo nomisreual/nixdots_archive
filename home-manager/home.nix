@@ -66,6 +66,9 @@ in {
   # Custom fonts module:
   fonts.enable = true;
 
+  # Yazi
+  programs.yazi.enable = true;
+
   # Let's get kitty:
   # kitty.enable = true;
   programs.kitty = {
