@@ -14,7 +14,23 @@
         ];
         modules-left = ["custom/launcher" "custom/logout" "custom/reboot" "custom/shutdown" "sway/workspaces" "sway/mode"];
         modules-center = ["sway/window"];
-        modules-right = ["idle_inhibitor" "custom/lock" "pulseaudio" "cpu" "memory" "temperature" "network" "clock" "tray"];
+        modules-right = [
+          "idle_inhibitor"
+          "custom/lock"
+          "pulseaudio"
+          "cpu"
+          "memory"
+          "temperature"
+          "network"
+          "sway/language"
+          "clock"
+          "tray"
+        ];
+
+        "sway/language" = {
+          format = "{}";
+          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
+        };
 
         "custom/logout" = {
           format = " ";

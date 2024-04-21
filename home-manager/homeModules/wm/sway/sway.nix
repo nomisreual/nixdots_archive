@@ -9,6 +9,11 @@
     config = {
       modifier = "Mod4";
       terminal = "kitty";
+      input = {
+        "*" = {
+          xkb_layout = "us,de";
+        };
+      };
       output = {
         "DP-1" = {
           mode = "1920x1080@165Hz";
@@ -26,11 +31,6 @@
           command = "waybar";
         }
       ];
-      # gaps = {
-      #   inner = 5;
-      #   outer = 5;
-      #   smartBorders = "on";
-      # };
     };
     extraConfig = ''
       # Displays:
