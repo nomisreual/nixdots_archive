@@ -107,8 +107,10 @@ in {
     enable = true;
 
     # Icons:
-    iconTheme.package = pkgs.pop-icon-theme;
-    iconTheme.name = "Pop";
+    # iconTheme.package = pkgs.pop-icon-theme;
+    # iconTheme.name = "Pop";
+    iconTheme.package = pkgs.papirus-icon-theme;
+    iconTheme.name = "Papirus";
   };
 
   # Enable home-manager
