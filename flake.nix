@@ -20,6 +20,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Git Alert
+    git-alert = {
+      url = "github:nomisreual/git_alert";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
