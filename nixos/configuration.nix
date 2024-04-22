@@ -178,6 +178,9 @@
     polarity = "dark";
   };
 
+  # Flatpak
+  services.flatpak.enable = true;
+
   # Enable Podman:
   virtualisation.podman = {
     enable = true;
@@ -187,14 +190,6 @@
   virtualisation.docker = {
     enable = true;
   };
-
-  # PostgreSQL
-  services.postgresql.enable = true;
-  services.postgresql.package = pkgs.postgresql_16;
-
-  services.postgresql.ensureDatabases = [
-    "books"
-  ];
 
   # Printing & Scanning
   services.printing = {
@@ -210,9 +205,18 @@
     openFirewall = true;
   };
 
+  # MongoDB
   services.mongodb = {
     enable = true;
   };
+
+  # PostgreSQL
+  services.postgresql.enable = true;
+  services.postgresql.package = pkgs.postgresql_16;
+
+  services.postgresql.ensureDatabases = [
+    "books"
+  ];
 
   # SSH Server:
   services.openssh = {
