@@ -1,5 +1,6 @@
 {
   imports = [
+    ./auto-session.nix
     ./comment.nix
     ./copilot-vim.nix
     ./indent-blankline.nix
