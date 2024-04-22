@@ -8,14 +8,14 @@
     clock24 = true;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      {
-        plugin = dracula;
-        extraConfig = ''
-          set -g @dracula-show-left-icon 󰌽
-          set -g @dracula-plugins "time"
-          set -g @dracula-show-powerline true
-        '';
-      }
+      # {
+      #   plugin = dracula;
+      #   extraConfig = ''
+      #     set -g @dracula-show-left-icon 󰌽
+      #     set -g @dracula-plugins "time"
+      #     set -g @dracula-show-powerline true
+      #   '';
+      # }
     ];
     extraConfig = ''
       # Make neovim happy:
