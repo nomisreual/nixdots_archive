@@ -70,7 +70,6 @@ in {
   programs.yazi.enable = true;
 
   # Let's get kitty:
-  # kitty.enable = true;
   programs.kitty = {
     enable = true;
   };
@@ -114,10 +113,6 @@ in {
 
   gtk = {
     enable = true;
-
-    # Icons:
-    # iconTheme.package = pkgs.pop-icon-theme;
-    # iconTheme.name = "Pop";
     iconTheme.package = pkgs.papirus-icon-theme;
     iconTheme.name = "Papirus";
   };
