@@ -15,14 +15,12 @@
         timeoutMs = 500;
         lspFallback = true;
       };
-      formatters = {"sleek" = {command = "sleek";};};
       formattersByFt = {
         python = ["isort" "black"];
         lua = ["stylua"];
         html = ["prettierd" "prettier"];
         javascript = ["prettierd" "prettier"];
         nix = ["alejandra"];
-        # sql = ["sleek"];
         "*" = ["codespell"];
       };
     };

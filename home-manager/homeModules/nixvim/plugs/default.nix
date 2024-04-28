@@ -19,7 +19,7 @@
   gitsigns.enable = true;
 
   lsp.enable = true;
-  none-ls.enable = true;
+  # none-ls.enable = true;
   conform.enable = true;
   fidget.enable = true;
 

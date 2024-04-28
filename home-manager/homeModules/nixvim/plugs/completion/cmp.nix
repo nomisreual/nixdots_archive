@@ -11,14 +11,19 @@
     programs.nixvim.plugins = {
       cmp = {
         enable = true;
+        autoEnableSources = true;
         settings = {
-          autoEnableSources = true;
           performance = {
             debounce = 60;
             fetchingTimeout = 200;
             maxViewEntries = 30;
           };
-          snippet.expand = "luasnip";
+          # snippet.expand = "luasnip";
+          snippet.expand = ''
+            function(args)
+              require('luasnip').lsp_expand(args.body)
+            end
+          '';
           sources = [
             {name = "nvim_lsp";}
             {name = "emoji";}

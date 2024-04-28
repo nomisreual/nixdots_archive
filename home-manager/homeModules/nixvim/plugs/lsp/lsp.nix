@@ -16,11 +16,12 @@
       servers = {
         lua-ls.enable = true;
         nil_ls.enable = true;
-        pylsp = {
-          enable = true;
-          package = pkgs.python311Packages.python-lsp-server;
-        };
+        pyright.enable = true;
       };
+      # capabilities = ''
+      #   local capabilities = vim.lsp.protocol.make_client_capabilities()
+      #   capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      # '';
       keymaps = {
         silent = true;
         lspBuf = {
