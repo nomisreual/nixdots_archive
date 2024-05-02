@@ -145,7 +145,7 @@
     wget
     tree
     git
-    neofetch
+    # neofetch
     zoxide
 
     nix-output-monitor

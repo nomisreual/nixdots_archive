@@ -104,6 +104,8 @@ in {
       obsidian
       pipx
       gitkraken
+      act
+      fastfetch
     ]
     ++ [
       inputs.git-alert.packages."x86_64-linux".default

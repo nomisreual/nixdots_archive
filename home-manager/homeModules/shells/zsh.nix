@@ -14,7 +14,6 @@
       # Add local bin
       path=('/home/simon/.local/bin' $path)
       export PATH
-      neofetch
     '';
     shellAliases = {
       py = "nix develop github:nomisreual/DevShells -c zsh";
