@@ -106,6 +106,8 @@ in {
       gitkraken
       act
       fastfetch
+      pgadmin4-desktopmode
+      k6
     ]
     ++ [
       inputs.git-alert.packages."x86_64-linux".default
