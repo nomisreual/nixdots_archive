@@ -108,6 +108,8 @@ in {
       fastfetch
       pgadmin4-desktopmode
       k6
+      gnome.pomodoro
+      popsicle
     ]
     ++ [
       inputs.git-alert.packages."x86_64-linux".default
