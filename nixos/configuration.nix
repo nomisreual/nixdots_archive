@@ -111,6 +111,7 @@
         "wheel"
         "networkmanager"
         "docker"
+        "libvirtd"
         "scanner"
         "lp"
       ];
@@ -129,7 +130,6 @@
     wget
     tree
     git
-    # neofetch
     zoxide
 
     nix-output-monitor
@@ -164,6 +164,10 @@
 
   # Flatpak
   services.flatpak.enable = true;
+
+  # Enable Virtualisation using libvirt and virt-manager:
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Enable Podman:
   virtualisation.podman = {
