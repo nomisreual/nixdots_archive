@@ -101,6 +101,7 @@ in {
       # shell prompt
       starship
 
+      gparted
       obsidian
       pipx
       gitkraken
