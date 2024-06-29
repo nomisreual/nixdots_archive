@@ -1,3 +1,5 @@
+# NOTE: as I am no longer using NixOS on my machine, this repository is no longer maintained.
+
 # Simple NixOS configuration using Flakes and Home Manager
 
 ## Update flake.lock
